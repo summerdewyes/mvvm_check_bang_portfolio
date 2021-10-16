@@ -1,4 +1,4 @@
-package com.summerdewyes.mvvm_check_bang
+package com.summerdewyes.mvvm_check_bang.models
 
 data class BookResponse(
     val display: Int,

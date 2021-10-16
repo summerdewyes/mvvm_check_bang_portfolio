@@ -1,7 +1,7 @@
 package com.summerdewyes.mvvm_check_bang.api
 
 
-import com.summerdewyes.mvvm_check_bang.BookResponse
+import com.summerdewyes.mvvm_check_bang.models.BookResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
