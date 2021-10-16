@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feeds_nav_graph"
+    app:startDestination="@id/setupFragment">
+
+    <fragment
+        android:id="@+id/bookSearchFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.BookSearchFragment"
+        android:label="fragment_book_search"
+        tools:layout="@layout/fragment_book_search" >
+        <action
+            android:id="@+id/action_bookSearchFragment_to_bookViewFragment"
+            app:destination="@id/bookViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.SetupFragment"
+        android:label="fragment_setup"
+        tools:layout="@layout/fragment_setup" >
+        <action
+            android:id="@+id/action_setupFragment_to_mainFeedFragment"
+            app:destination="@id/mainFeedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFeedFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.MainFeedFragment"
+        android:label="fragment_main_feed"
+        tools:layout="@layout/fragment_main_feed" />
+
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
+
+    <fragment
+        android:id="@+id/bookViewFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.BookViewFragment"
+        android:label="fragment_book_view"
+        tools:layout="@layout/fragment_book_view" >
+        <action
+            android:id="@+id/action_bookViewFragment_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

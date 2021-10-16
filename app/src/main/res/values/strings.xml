@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">mvvm_check_bang</string>
+
+    <string name="hint_name">이름을 정해주세요!</string>
+    <string name="hello_stranger">어서오세요, 책방입니다 :)</string>
+    <string name="hello_friend">안녕하세요, 책방입니다 :)</string>
+    <string name="start">입장</string>
+
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/mainFeedFragment"
+        android:title="피드"
+        android:icon="@drawable/ic_feed"
+        />
+
+    <item android:id="@+id/bookMarkFragment"
+        android:title="북마크"
+        android:icon="@drawable/ic_bookmark"
+        />
+
+    <item android:id="@+id/searchFragment"
+        android:title="책방"
+        android:icon="@drawable/ic_library_books"
+        />
+
+    <item android:id="@+id/profileFragment"
+        android:title="프로필"
+        android:icon="@drawable/ic_profile"
+        />
+</menu>
