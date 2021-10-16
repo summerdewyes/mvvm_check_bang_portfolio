@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentMainFeedBinding
 
+
 class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
+
+
 
     private var _binding: FragmentMainFeedBinding? = null
     private val binding get() = _binding!!
@@ -20,5 +23,9 @@ class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
     ): View? {
         _binding = FragmentMainFeedBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

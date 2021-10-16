@@ -5,7 +5,7 @@ import androidx.room.*
 import com.summerdewyes.mvvm_check_bang.models.Item
 
 @Dao
-interface BookItemDao {
+interface BookDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(bookItem: Item): Long
