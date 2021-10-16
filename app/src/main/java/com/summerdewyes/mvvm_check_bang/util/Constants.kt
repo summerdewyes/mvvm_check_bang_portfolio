@@ -5,5 +5,6 @@ class Constants {
     companion object{
         const val BASE_URL = "https://openapi.naver.com/"
         const val BOOK_ITEM_DATABASE_NAME = "book_item_db.db"
+        const val FEED_ITEM_DATABASE_NAME = "feed_item_db.db"
     }
 }

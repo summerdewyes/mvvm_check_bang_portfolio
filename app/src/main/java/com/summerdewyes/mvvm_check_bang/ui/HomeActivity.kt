@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.databinding.ActivityHomeBinding
 import com.summerdewyes.mvvm_check_bang.db.BookDao
+import com.summerdewyes.mvvm_check_bang.db.FeedDao
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,6 +20,9 @@ class HomeActivity : AppCompatActivity() {
     @Inject
     lateinit var bookDAO: BookDao
 
+    @Inject
+    lateinit var feedDao: FeedDao
+
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +30,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.d("bookDao", "BOOKDAO : ${bookDAO.hashCode()}")
+
+        Log.d("dao", "FEEDDAO : ${feedDao.hashCode()}")
 
         val navHostFragment= supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController= navHostFragment.navController

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="image_width">90sp</dimen>
-    <dimen name="image_height">120sp</dimen>
-    <dimen name="bottom_height">56sp</dimen>
+    <dimen name="book_image_width">90sp</dimen>
+    <dimen name="book_image_height">120sp</dimen>
+    <dimen name="default_height">56sp</dimen>
+    <dimen name="photo_image_height">400sp</dimen>
 
     <dimen name="margin_default">8sp</dimen>
     <dimen name="margin_default_x2">16sp</dimen>

@@ -6,67 +6,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:paddingBottom="@dimen/margin_default_x2">
 
     <ImageView
-        android:id="@+id/ivBookImage"
-        android:layout_width="@dimen/book_image_width"
-        android:layout_height="@dimen/book_image_height"
+        android:id="@+id/ivPhotoImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/photo_image_height"
+        android:layout_marginTop="@dimen/default_height"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
+        android:layout_margin="@dimen/margin_default"
         android:ellipsize="end"
         android:maxLines="3"
-        android:text="TITLE"
+        android:text="NAME"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_default"
         android:textStyle="bold"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/ivBookImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvAuthor"
+        android:id="@+id/tvDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
         android:ellipsize="end"
         android:maxLines="5"
-        android:text="AUTHOR"
+        android:text="DATE"
         android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivBookImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
-        android:id="@+id/tvPublishedAt"
+        android:id="@+id/tvPage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        android:text="PAGE"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoImage" />
+
+    <TextView
+        android:id="@+id/tvContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:text="PUBLISHED AT"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:text="CONTENT"
         android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivBookImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvAuthor" />
-
-    <TextView
-        android:id="@+id/tvPubdate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:text="PUBDATE"
-        android:textColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivBookImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvPublishedAt" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

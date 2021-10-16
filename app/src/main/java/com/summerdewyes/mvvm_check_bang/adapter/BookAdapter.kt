@@ -3,13 +3,14 @@ package com.summerdewyes.mvvm_check_bang.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.summerdewyes.mvvm_check_bang.databinding.ItemBookPreviewBinding
 import com.summerdewyes.mvvm_check_bang.models.Item
 
-class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(ItemDifferUtilCallback()) {
+class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(differCallback) {
 
     inner class BookViewHolder(private val binding: ItemBookPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -33,6 +34,18 @@ class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(ItemDifferUtil
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    companion object {
+        val differCallback = object : DiffUtil.ItemCallback<Item>() {
+            override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
 
