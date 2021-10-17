@@ -15,7 +15,7 @@ class FeedViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    fun saveFeed(feed: Feed) = viewModelScope.launch {
+    fun upsertFeed(feed: Feed) = viewModelScope.launch {
         feedRepository.upsertFeed(feed)
     }
 

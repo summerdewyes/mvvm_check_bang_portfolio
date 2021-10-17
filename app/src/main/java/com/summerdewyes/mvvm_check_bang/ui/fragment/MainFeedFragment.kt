@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.adapter.FeedAdapter
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentMainFeedBinding
@@ -41,11 +44,36 @@ class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
         })
     }
 
+    private val itemTouchHelperCallback = object  : ItemTouchHelper.SimpleCallback(
+        ItemTouchHelper.UP or ItemTouchHelper.DOWN, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+    ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return true
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val position = viewHolder.layoutPosition
+            val feed = feedAdapter.currentList[position]
+            viewModel.deleteFeed(feed)
+            Snackbar.make(requireView(), "삭제했습니다 :)", Snackbar.LENGTH_LONG).apply {
+                setAction("Undo") {
+                    viewModel.upsertFeed(feed)
+                }
+                show()
+            }
+        }
+    }
+
     private fun setupRecyclerView() {
         feedAdapter = FeedAdapter()
         binding.rvMainFeed.apply {
             adapter = feedAdapter
             layoutManager = LinearLayoutManager(activity)
+            ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(this)
         }
     }
 }

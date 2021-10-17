@@ -21,6 +21,7 @@ import java.io.File
 import androidx.core.content.FileProvider
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.summerdewyes.mvvm_check_bang.models.Feed
 import com.summerdewyes.mvvm_check_bang.ui.viewModel.FeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,18 +62,29 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
         }
 
         binding.tvNext.setOnClickListener {
-            saveToFeedDb()
-            findNavController().navigate(R.id.action_addFeedFragment_to_mainFeedFragment)
+            val save = saveToFeedDb()
+            if (save){
+                findNavController().navigate(R.id.action_addFeedFragment_to_mainFeedFragment)
+            } else {
+                Snackbar.make(requireView(), "페이지와 문구를 모두 입력해주세요 :)", Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun saveToFeedDb() {
+    private fun saveToFeedDb() : Boolean {
         val name = "test"
         val timestamp = Calendar.getInstance().timeInMillis
         val page = binding.etPage.text.toString()
         val content = binding.etContent.text.toString()
         val feed = Feed(name, timestamp, page, content, bitmap!!)
-        Log.d(TAG, "$name + $timestamp + $page + $content + $bitmap")
+
+        if (page.isNotEmpty() && content.isNotEmpty() && bitmap != null){
+            viewModel.upsertFeed(feed)
+
+            return true
+        }
+
+        return false
     }
 
     private fun cameraLauncher() {
