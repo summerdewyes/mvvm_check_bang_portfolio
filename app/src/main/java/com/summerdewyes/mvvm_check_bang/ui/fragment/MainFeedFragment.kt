@@ -11,14 +11,16 @@ import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.adapter.FeedAdapter
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentMainFeedBinding
 import com.summerdewyes.mvvm_check_bang.ui.viewModel.BookViewModel
+import com.summerdewyes.mvvm_check_bang.ui.viewModel.FeedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
 
     private var _binding: FragmentMainFeedBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: BookViewModel by viewModels()
+    private val viewModel: FeedViewModel by viewModels()
     lateinit var feedAdapter: FeedAdapter
 
     override fun onCreateView(
@@ -33,6 +35,10 @@ class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+
+        viewModel.getSavedFeed().observe(viewLifecycleOwner, {
+            feedAdapter.submitList(it)
+        })
     }
 
     private fun setupRecyclerView() {

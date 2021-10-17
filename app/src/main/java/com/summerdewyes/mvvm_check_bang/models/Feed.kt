@@ -8,11 +8,12 @@ import androidx.room.PrimaryKey
     tableName = "feedItems"
 )
 data class Feed(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
     var name: String,
     var timestamp: Long,
     var page: String,
     var content: String,
     var photo: Bitmap
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
+}

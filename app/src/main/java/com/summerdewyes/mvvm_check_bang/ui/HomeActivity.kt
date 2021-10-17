@@ -32,11 +32,13 @@ class HomeActivity : AppCompatActivity() {
         navHostFragment.findNavController()
             .addOnDestinationChangedListener { controller, destination, arguments ->
                 when(destination.id){
-                    R.id.mainFeedFragment, R.id.bookmarkFragment, R.id.bookSearchFragment, R.id.profileFragment ->
+                    R.id.mainFeedFragment, R.id.bookmarkFragment, R.id.addFeedFragment, R.id.bookSearchFragment, R.id.profileFragment ->
                         binding.bottomNavigationView.visibility = View.VISIBLE
                     else -> binding.bottomNavigationView.visibility = View.GONE
                 }
             }
+
+
 
 
     }

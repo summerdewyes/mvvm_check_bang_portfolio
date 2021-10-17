@@ -16,16 +16,16 @@ class FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(differCallback
 
     inner class FeedViewHolder(private val binding: MainFeedPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Feed) {
-            Glide.with(binding.root).load(item.photo).into(binding.ivPhotoImage)
-            binding.tvName.text = item.name
-            binding.tvPage.text = item.page
-            binding.tvContent.text = item.content
+        fun bind(feed: Feed) {
+            Glide.with(binding.root).load(feed.photo).into(binding.ivPhotoImage)
+            binding.tvName.text = feed.name
+            binding.tvPage.text = "[" + feed.page + " 장]"
+            binding.tvContent.text = feed.content
 
             val calendar = Calendar.getInstance().apply {
-                timeInMillis = item.timestamp
+                timeInMillis = feed.timestamp
             }
-            val dateFormat = SimpleDateFormat("dd.MM.yy", Locale.getDefault())
+            val dateFormat = SimpleDateFormat("yyyy/MM/yy", Locale.getDefault())
             binding.tvDate.text = dateFormat.format(calendar.time)
 
         }

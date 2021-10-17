@@ -56,4 +56,14 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
+    <fragment
+        android:id="@+id/addFeedFragment"
+        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.AddFeedFragment"
+        android:label="fragment_add_feed"
+        tools:layout="@layout/fragment_add_feed" >
+        <action
+            android:id="@+id/action_addFeedFragment_to_mainFeedFragment"
+            app:destination="@id/mainFeedFragment" />
+    </fragment>
+
 </navigation>
