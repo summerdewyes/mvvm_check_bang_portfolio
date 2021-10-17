@@ -6,12 +6,12 @@
         android:icon="@drawable/ic_feed"
         />
 
-    <item android:id="@+id/bookMarkFragment"
+    <item android:id="@+id/bookmarkFragment"
         android:title="북마크"
         android:icon="@drawable/ic_bookmark"
         />
 
-    <item android:id="@+id/searchFragment"
+    <item android:id="@+id/bookSearchFragment"
         android:title="책방"
         android:icon="@drawable/ic_library_books"
         />

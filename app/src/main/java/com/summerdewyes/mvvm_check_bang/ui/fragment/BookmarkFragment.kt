@@ -5,16 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.adapter.BookAdapter
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentBookmarkBinding
+import com.summerdewyes.mvvm_check_bang.ui.viewModel.BookViewModel
 
 class BookmarkFragment : Fragment(R.layout.fragment_bookmark) {
 
     private var _binding: FragmentBookmarkBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: BookViewModel by viewModels()
     lateinit var bookAdapter: BookAdapter
 
     override fun onCreateView(

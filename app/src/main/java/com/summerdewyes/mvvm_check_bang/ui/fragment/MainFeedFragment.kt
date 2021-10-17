@@ -5,19 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_check_bang.R
-import com.summerdewyes.mvvm_check_bang.adapter.BookAdapter
 import com.summerdewyes.mvvm_check_bang.adapter.FeedAdapter
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentMainFeedBinding
+import com.summerdewyes.mvvm_check_bang.ui.viewModel.BookViewModel
 
 
 class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
 
-    lateinit var feedAdapter: FeedAdapter
-
     private var _binding: FragmentMainFeedBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: BookViewModel by viewModels()
+    lateinit var feedAdapter: FeedAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -10,10 +10,10 @@ interface BookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(bookItem: Item): Long
 
-    @Query("SELECT * FROM bookItems")
-    fun getAllBookItems(): LiveData<List<Item>>
-
     @Delete
     suspend fun deleteBookItems(bookItem: Item)
+
+    @Query("SELECT * FROM bookItems")
+    fun getAllBookItems(): LiveData<List<Item>>
 }
 

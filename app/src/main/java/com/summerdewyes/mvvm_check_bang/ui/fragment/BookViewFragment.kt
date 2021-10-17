@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.summerdewyes.mvvm_check_bang.R
-import com.summerdewyes.mvvm_check_bang.adapter.BookAdapter
 import com.summerdewyes.mvvm_check_bang.databinding.FragmentBookViewBinding
-import com.summerdewyes.mvvm_check_bang.databinding.FragmentMainFeedBinding
 
 class BookViewFragment : Fragment(R.layout.fragment_book_view) {
 
