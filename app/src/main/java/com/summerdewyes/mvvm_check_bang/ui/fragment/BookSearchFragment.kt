@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_check_bang.R
 import com.summerdewyes.mvvm_check_bang.adapter.BookAdapter
@@ -45,6 +46,17 @@ class BookSearchFragment : Fragment(R.layout.fragment_book_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+
+
+        bookAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("bookItem", it)
+            }
+            findNavController().navigate(
+                R.id.action_bookSearchFragment_to_bookViewFragment,
+                bundle
+            )
+        }
 
         var job: Job? = null
         binding.etSearch.addTextChangedListener { editable ->

@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_bookViewFragment_to_bookmarkFragment"
             app:destination="@id/bookmarkFragment" />
+        <argument
+            android:name="bookItem"
+            app:argType="com.summerdewyes.mvvm_check_bang.models.Item" />
     </fragment>
 
     <fragment

@@ -12,6 +12,8 @@ import com.summerdewyes.mvvm_check_bang.models.Item
 
 class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(differCallback) {
 
+    private var onItemClickListener: ((Item) -> Unit)? = null
+
     inner class BookViewHolder(private val binding: ItemBookPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item) {
@@ -20,6 +22,10 @@ class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(differCallback
             binding.tvAuthor.text = item.author
             binding.tvPublishedAt.text = item.publisher
             binding.tvPubdate.text = item.pubdate
+
+            itemView.setOnClickListener {
+                onItemClickListener?.let { it(item) }
+            }
         }
     }
 
@@ -34,6 +40,10 @@ class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(differCallback
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    fun setOnItemClickListener(listener: (Item) -> Unit) {
+        onItemClickListener = listener
     }
 
     companion object {

@@ -16,7 +16,7 @@ class BookRepository @Inject constructor(
     suspend fun searchBook(searchQuery: String, displayNumber: Int) =
         RetrofitInstance.api.searchForBook(searchQuery, displayNumber)
 
-    fun getAllBookItems(book: Item) = bookDao.getAllBookItems()
+    fun getAllBookItems() = bookDao.getAllBookItems()
 
 
 }

@@ -2,6 +2,7 @@ package com.summerdewyes.mvvm_check_bang.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
     tableName = "bookItems"
@@ -19,4 +20,4 @@ data class Item(
     val pubdate: String,
     val publisher: String,
     val title: String
-)
+) : Serializable

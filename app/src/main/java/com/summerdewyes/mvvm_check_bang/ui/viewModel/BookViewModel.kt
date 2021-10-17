@@ -45,7 +45,6 @@ class BookViewModel @Inject constructor(
         bookRepository.deleteBook(item)
     }
 
-    fun getSavedBook(item: Item) = viewModelScope.launch {
-        bookRepository.getAllBookItems(item)
-    }
+    fun getSavedBook() = bookRepository.getAllBookItems()
+
 }
