@@ -10,7 +10,10 @@
     <dimen name="margin_default_x2">16sp</dimen>
     <dimen name="margin_default_x4">32sp</dimen>
 
+    <dimen name="head_height">72sp</dimen>
+
     <dimen name="padding_default">50sp</dimen>
 
     <dimen name="text_default">16sp</dimen>
+    <dimen name="head_text">20sp</dimen>
 </resources>

@@ -42,6 +42,41 @@ class BookmarkFragment : Fragment(R.layout.fragment_bookmark) {
         viewModel.getSavedBook().observe(viewLifecycleOwner, { bookItems ->
             bookAdapter.submitList(bookItems)
         })
+
+        bookAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("bookItem", it)
+            }
+            findNavController().navigate(
+                R.id.action_bookmarkFragment_to_bookViewFragment,
+                bundle
+            )
+        }
+
+    }
+
+    private val itemTouchHelperCallback = object  : ItemTouchHelper.SimpleCallback(
+        ItemTouchHelper.UP or ItemTouchHelper.DOWN, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+    ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return true
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val position = viewHolder.layoutPosition
+            val book = bookAdapter.currentList[position]
+            viewModel.deleteBook(book)
+            Snackbar.make(requireView(), "삭제했습니다 :)", Snackbar.LENGTH_LONG).apply {
+                setAction("Undo") {
+                    viewModel.saveBook(book)
+                }
+                show()
+            }
+        }
     }
 
     private fun setupRecyclerView() {
@@ -49,6 +84,7 @@ class BookmarkFragment : Fragment(R.layout.fragment_bookmark) {
         binding.rvBookmark.apply {
             adapter = bookAdapter
             layoutManager = LinearLayoutManager(activity)
+            ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(this)
         }
     }
 

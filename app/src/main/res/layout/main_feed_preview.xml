@@ -8,11 +8,12 @@
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/margin_default_x2">
 
+
     <ImageView
         android:id="@+id/ivPhotoImage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/photo_image_height"
-        android:layout_marginTop="@dimen/default_height"
+        android:layout_marginTop="@dimen/head_height"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

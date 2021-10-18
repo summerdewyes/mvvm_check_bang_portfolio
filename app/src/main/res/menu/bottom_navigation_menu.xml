@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/mainFeedFragment"
-        android:title="피드"
-        android:icon="@drawable/ic_feed"
-        />
+
 
     <item android:id="@+id/bookmarkFragment"
         android:title="북마크"
         android:icon="@drawable/ic_bookmark"
         />
 
-    <item android:id="@+id/bookSearchFragment"
-        android:title="사진"
-        android:icon="@drawable/ic_add_feed"
+    <item android:id="@+id/mainFeedFragment"
+        android:title="피드"
+        android:icon="@drawable/ic_feed"
         />
 
     <item android:id="@+id/profileFragment"

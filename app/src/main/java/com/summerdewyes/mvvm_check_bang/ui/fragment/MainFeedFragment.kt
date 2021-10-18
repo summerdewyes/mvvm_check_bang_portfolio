@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +43,10 @@ class MainFeedFragment : Fragment(R.layout.fragment_main_feed) {
         viewModel.getSavedFeed().observe(viewLifecycleOwner, {
             feedAdapter.submitList(it)
         })
+
+        binding.ivAddFeed.setOnClickListener {
+            findNavController().navigate(R.id.bookSearchFragment)
+        }
     }
 
     private val itemTouchHelperCallback = object  : ItemTouchHelper.SimpleCallback(

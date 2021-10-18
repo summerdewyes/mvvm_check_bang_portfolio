@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:layout_marginTop="@dimen/margin_default_x2">
 
     <ImageView
         android:id="@+id/ivBookImage"
@@ -68,19 +69,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivBookImage"
         app:layout_constraintTop_toBottomOf="@+id/tvPublishedAt" />
-
-    <androidx.appcompat.widget.AppCompatRatingBar
-        android:id="@+id/rbBook"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_default"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:rating="3"
-        android:stepSize="0.5"
-        android:max="5"
-        app:layout_constraintStart_toStartOf="@+id/tvPubdate"
-        app:layout_constraintTop_toBottomOf="@+id/tvPubdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
