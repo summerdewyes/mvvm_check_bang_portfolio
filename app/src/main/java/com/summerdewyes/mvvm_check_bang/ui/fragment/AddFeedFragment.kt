@@ -21,8 +21,10 @@ import java.io.File
 import androidx.core.content.FileProvider
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.summerdewyes.mvvm_check_bang.models.Feed
+import com.summerdewyes.mvvm_check_bang.ui.viewModel.BookViewModel
 import com.summerdewyes.mvvm_check_bang.ui.viewModel.FeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -35,7 +37,10 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
     private val binding get() = _binding!!
 
     lateinit var filePath: String
-    private val viewModel: FeedViewModel by viewModels()
+    private val feedViewModel: FeedViewModel by viewModels()
+    private val bookViewModel: BookViewModel by viewModels()
+
+    val args: BookViewFragmentArgs by navArgs()
 
     val TAG = "AddFeedFragment"
 
@@ -53,6 +58,8 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         binding.ivGallery.setOnClickListener {
             galleryLauncher()
         }
@@ -63,23 +70,27 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
 
         binding.tvNext.setOnClickListener {
             val save = saveToFeedDb()
-            if (save){
-                findNavController().navigate(R.id.action_addFeedFragment_to_bookSearchFragment)
+            if (save) {
+                findNavController().navigate(R.id.action_addFeedFragment_to_mainFeedFragment)
             } else {
                 Snackbar.make(requireView(), "페이지와 문구를 모두 입력해주세요 :)", Snackbar.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun saveToFeedDb() : Boolean {
+    private fun saveToFeedDb(): Boolean {
+        val bookItem = args.bookItem
+
         val name = "test"
         val timestamp = Calendar.getInstance().timeInMillis
         val page = binding.etPage.text.toString()
         val content = binding.etContent.text.toString()
-        val feed = Feed(name, timestamp, page, content, bitmap!!)
+
+        val feed = Feed(name, timestamp, page, content, bitmap!!, bookItem.image)
 
         if (page.isNotEmpty() && content.isNotEmpty() && bitmap != null) {
-            viewModel.upsertFeed(feed)
+            feedViewModel.upsertFeed(feed)
+            bookViewModel.saveBook(bookItem)
             return true
         }
 

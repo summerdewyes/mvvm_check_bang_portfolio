@@ -12,7 +12,8 @@ data class Feed(
     var timestamp: Long,
     var page: String,
     var content: String,
-    var photo: Bitmap
+    var photo: Bitmap,
+    var bookImage: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

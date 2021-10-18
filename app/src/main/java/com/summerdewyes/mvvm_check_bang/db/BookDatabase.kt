@@ -2,6 +2,7 @@ package com.summerdewyes.mvvm_check_bang.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.summerdewyes.mvvm_check_bang.models.Item
 
 @Database(

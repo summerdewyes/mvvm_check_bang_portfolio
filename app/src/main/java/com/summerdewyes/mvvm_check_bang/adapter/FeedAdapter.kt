@@ -21,6 +21,7 @@ class FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(differCallback
             binding.tvName.text = feed.name
             binding.tvPage.text = "[" + feed.page + " 장]"
             binding.tvContent.text = feed.content
+            Glide.with(binding.root).load(feed.bookImage).into(binding.ivBookImage)
 
             val calendar = Calendar.getInstance().apply {
                 timeInMillis = feed.timestamp

@@ -4,6 +4,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.room.TypeConverter
 import java.io.ByteArrayOutputStream
+import com.google.gson.Gson
+
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
+
 
 class Converters {
 

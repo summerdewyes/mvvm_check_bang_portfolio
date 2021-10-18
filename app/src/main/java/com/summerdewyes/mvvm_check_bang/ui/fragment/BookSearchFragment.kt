@@ -52,7 +52,7 @@ class BookSearchFragment : Fragment(R.layout.fragment_book_search) {
                 putSerializable("bookItem", it)
             }
             findNavController().navigate(
-                R.id.action_bookSearchFragment_to_saveRatingDialog,
+                R.id.action_bookSearchFragment_to_addFeedFragment,
                 bundle
             )
         }

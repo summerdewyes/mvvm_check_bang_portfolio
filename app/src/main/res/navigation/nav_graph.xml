@@ -11,8 +11,8 @@
         android:label="fragment_book_search"
         tools:layout="@layout/fragment_book_search" >
         <action
-            android:id="@+id/action_bookSearchFragment_to_saveRatingDialog"
-            app:destination="@id/saveRatingDialog" />
+            android:id="@+id/action_bookSearchFragment_to_addFeedFragment"
+            app:destination="@id/addFeedFragment" />
     </fragment>
 
     <fragment
@@ -35,7 +35,11 @@
         android:id="@+id/bookmarkFragment"
         android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.BookmarkFragment"
         android:label="fragment_bookmark"
-        tools:layout="@layout/fragment_bookmark" />
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_bookmarkFragment_to_bookViewFragment"
+            app:destination="@id/bookViewFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/bookViewFragment"
@@ -59,16 +63,8 @@
         android:label="fragment_add_feed"
         tools:layout="@layout/fragment_add_feed" >
         <action
-            android:id="@+id/action_addFeedFragment_to_bookSearchFragment"
-            app:destination="@id/bookSearchFragment" />
+            android:id="@+id/action_addFeedFragment_to_mainFeedFragment"
+            app:destination="@id/mainFeedFragment" />
     </fragment>
-    <dialog
-        android:id="@+id/saveRatingDialog"
-        android:name="com.summerdewyes.mvvm_check_bang.ui.fragment.SaveRatingDialog"
-        android:label="SaveRatingDialog" >
-        <action
-            android:id="@+id/action_saveRatingDialog_to_bookmarkFragment"
-            app:destination="@id/bookmarkFragment" />
-    </dialog>
 
 </navigation>

@@ -11,14 +11,9 @@
         android:icon="@drawable/ic_bookmark"
         />
 
-    <item android:id="@+id/addFeedFragment"
+    <item android:id="@+id/bookSearchFragment"
         android:title="사진"
         android:icon="@drawable/ic_add_feed"
-        />
-
-    <item android:id="@+id/bookSearchFragment"
-        android:title="책방"
-        android:icon="@drawable/ic_library_books"
         />
 
     <item android:id="@+id/profileFragment"
