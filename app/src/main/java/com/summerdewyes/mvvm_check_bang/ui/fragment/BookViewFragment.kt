@@ -35,14 +35,19 @@ class BookViewFragment : Fragment(R.layout.fragment_book_view) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val bookItem = args.bookItem
-        binding.webView.apply {
-            webViewClient = WebViewClient()
-            loadUrl(bookItem.link)
-        }
 
         binding.fab.setOnClickListener {
             viewModel.saveBook(bookItem)
-            findNavController().navigate(R.id.action_bookViewFragment_to_bookmarkFragment)
+            //findNavController().navigate(R.id.action_bookViewFragment_to_bookmarkFragment)
+        }
+    }
+
+    private fun showSaveRatingDaialog() {
+        SaveRatingDialog().apply {
+            setYesListener {
+                //viewModel.saveBook(bookItem)
+                //findNavController().navigate(R.id.action_bookViewFragment_to_bookmarkFragment)
+            }
         }
     }
 

@@ -1,11 +1,15 @@
 package com.summerdewyes.mvvm_check_bang.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.summerdewyes.mvvm_check_bang.db.BookDatabase
 import com.summerdewyes.mvvm_check_bang.db.FeedDatabase
 import com.summerdewyes.mvvm_check_bang.util.Constants.Companion.BOOK_ITEM_DATABASE_NAME
 import com.summerdewyes.mvvm_check_bang.util.Constants.Companion.FEED_ITEM_DATABASE_NAME
+import com.summerdewyes.mvvm_check_bang.util.Constants.Companion.KEY_FIRST_TIME_TOGGLE
+import com.summerdewyes.mvvm_check_bang.util.Constants.Companion.KEY_NAME
+import com.summerdewyes.mvvm_check_bang.util.Constants.Companion.SHARED_PREFERENCES_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,6 +44,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideFeedItemDao(db: FeedDatabase) = db.getFeedItemDao()
+
 
 
 }

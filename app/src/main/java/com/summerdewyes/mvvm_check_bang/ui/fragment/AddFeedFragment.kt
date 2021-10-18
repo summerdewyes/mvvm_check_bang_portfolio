@@ -64,7 +64,7 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
         binding.tvNext.setOnClickListener {
             val save = saveToFeedDb()
             if (save){
-                findNavController().navigate(R.id.action_addFeedFragment_to_mainFeedFragment)
+                findNavController().navigate(R.id.action_addFeedFragment_to_bookSearchFragment)
             } else {
                 Snackbar.make(requireView(), "페이지와 문구를 모두 입력해주세요 :)", Snackbar.LENGTH_SHORT).show()
             }
@@ -78,9 +78,8 @@ class AddFeedFragment : Fragment(R.layout.fragment_add_feed) {
         val content = binding.etContent.text.toString()
         val feed = Feed(name, timestamp, page, content, bitmap!!)
 
-        if (page.isNotEmpty() && content.isNotEmpty() && bitmap != null){
+        if (page.isNotEmpty() && content.isNotEmpty() && bitmap != null) {
             viewModel.upsertFeed(feed)
-
             return true
         }
 

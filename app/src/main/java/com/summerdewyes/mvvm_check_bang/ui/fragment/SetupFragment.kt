@@ -32,4 +32,6 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
         }
     }
 
+
+
 }

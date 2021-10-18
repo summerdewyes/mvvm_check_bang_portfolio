@@ -19,5 +19,6 @@ data class Item(
     val price: String,
     val pubdate: String,
     val publisher: String,
-    val title: String
+    val title: String,
+    val rating: Float
 ) : Serializable

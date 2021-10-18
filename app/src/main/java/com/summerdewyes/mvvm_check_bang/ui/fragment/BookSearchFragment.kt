@@ -47,13 +47,12 @@ class BookSearchFragment : Fragment(R.layout.fragment_book_search) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
 
-
         bookAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("bookItem", it)
             }
             findNavController().navigate(
-                R.id.action_bookSearchFragment_to_bookViewFragment,
+                R.id.action_bookSearchFragment_to_saveRatingDialog,
                 bundle
             )
         }

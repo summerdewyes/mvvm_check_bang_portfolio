@@ -22,6 +22,7 @@ class BookAdapter : ListAdapter<Item, BookAdapter.BookViewHolder>(differCallback
             binding.tvAuthor.text = item.author
             binding.tvPublishedAt.text = item.publisher
             binding.tvPubdate.text = item.pubdate
+            binding.rbBook.rating = item.rating
 
             itemView.setOnClickListener {
                 onItemClickListener?.let { it(item) }
